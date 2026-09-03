@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa Hogar de Marcando Huellas - Adopción de Mascotas</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+        .tarjeta-mascota {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            height: 100%;
+        }
+
+        .tarjeta-mascota .imagen-contenedor {
+            height: 280px;
+            width: 100%;
+            overflow: hidden;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .tarjeta-mascota .imagen-contenedor img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        .overlay-info {
+            position: absolute;
+            inset: 0;
+            background: rgba(33, 37, 41, 0.94);
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .tarjeta-mascota:hover .overlay-info {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    </style>
+</head>
+
+<body class="d-flex flex-column bg-warning" style="min-height: 100vh; padding-top: 70px;">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-paw-fill text-warning"></i>Marcando Huellas
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuPrincipal">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menuPrincipal">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="servicios.html">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-warning font-weight-bold" href="mascotas.html">Mascotas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="registro.html">Registrarse</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="sesion.html">Inicar Sesion</a>
+                    </li>
+                    <li class="nav-item d-none" id="opcionUsuario">
+                        <span class="nav-link text-warning font-weight-bold">
+                                <i class="bi bi-person-circle"></i> <span id="nombreUsuarioHeader">Usuario</span>
+                        </span>
+                    </li>
+                    <li class="nav-item d-none" id="opcionCerrarSesion">
+                        <a class="nav-link text-danger" href="#" onclick="cerrarSesion()">
+                            <i class="bi bi-box-arrow-right"></i> Salir
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container text-center my-4">
+        <h1 class="font-weight-bold">Nuestro Catálogo de Mascotas</h1>
+        <p class="text">Contamos con 12 pequeños amigos listos para recibir amor. ¡Pasa el mouse por una tarjeta para conocer su historia!</p>
+        <span class="badge badge-warning px-3 py-2 text-dark font-weight-bold">
+            <i class="bi bi-info-circle-fill"></i> Tip: Pasa el cursor sobre una tarjeta
+        </span>
+    </div>
+
+    <div class="container my-3">
+        <div class="row">
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                <div class="card tarjeta-mascota shadow-sm border-0">
+                    <div class="imagen-contenedor">
+                        <img src="img/perro1.jpg" class="card-img-top" alt="Bobby">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title font-weight-bold text-dark mb-1">Bobby</h5>
+                        <p class="text small mb-0"><i class="bi bi-gender-male text-primary"></i> Macho • 1 Año</p>
+                    </div>
+                    <div class="overlay-info">
+                        <h5 class="font-weight-bold text-warning mb-2">Bobby</h5>
+                        <p class="small mb-2"><strong>Tamaño:</strong> Mediano (14 kg)</p>
+                        <p class="small mb-2"><strong>Salud:</strong> Vacunado y Esterilizado</p>
+                        <p class="small text-justify mb-3">Fue rescatado en Surco. Le encanta socializar con otros perritos y es sumamente dulce con los niños.</p>
+                        <button class="btn btn-warning btn-block font-weight-bold text-dark btn-adoptar" data-toggle="modal" data-target="#modalAdopcion" data-nombre="Bobby">
+                            Adoptar a Bobby
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                <div class="card tarjeta-mascota shadow-sm border-0">
+                    <div class="imagen-contenedor">
+                        <img src="img/gato1.jpg" class="card-img-top" alt="Luna">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title font-weight-bold text-dark mb-1">Luna</h5>
+                        <p class="text small mb-0"><i class="bi bi-gender-female text-danger"></i> Hembra • 8 Meses</p>
+                    </div>
+                    <div class="overlay-info">
+                        <h5 class="font-weight-bold text-warning mb-2">Luna</h5>
+                        <p class="small mb-2"><strong>Tamaño:</strong> Pequeño (3 kg)</p>
+                        <p class="small mb-2"><strong>Salud:</strong> Desparasitada y sin pulgas</p>
+                        <p class="small text-justify mb-3">Rescatada de un tejado alto. Es súper independiente y le fascina acurrucarse en mantas suaves.</p>
+                        <button class="btn btn-warning btn-block font-weight-bold text-dark btn-adoptar" data-toggle="modal" data-target="#modalAdopcion" data-nombre="Luna">
+                            Adoptar a Luna
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                <div class="card tarjeta-mascota shadow-sm border-0">
+                    <div class="imagen-contenedor">
+                        <img src="img/perro2.jpg" class="card-img-top" alt="Rocky">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title font-weight-bold text-dark mb-1">Rocky</h5>
+                        <p class="text small mb-0"><i class="bi bi-gender-male text-primary"></i> Macho • 2 Años</p>
+                    </div>
+                    <div class="overlay-info">
+                        <h5 class="font-weight-bold text-warning mb-2">Rocky</h5>
+                        <p class="small mb-2"><strong>Tamaño:</strong> Grande (25 kg)</p>
+                        <p class="small mb-2"><strong>Salud:</strong> Al día con vacunas</p>
+                        <p class="small text-justify mb-3">Rescatado de una fábrica. Es un excelente guardián y sabe responder de forma perfecta a órdenes de obediencia básica.</p>
+                        <button class="btn btn-warning btn-block font-weight-bold text-dark btn-adoptar" data-toggle="modal" data-target="#modalAdopcion" data-nombre="Rocky">
+                            Adoptar a Rocky
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                <div class="card tarjeta-mascota shadow-sm border-0">
+                    <div class="imagen-contenedor">
+                        <img src="img/gato2.jpg" class="card-img-top" alt="Mia">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title font-weight-bold text-dark mb-1">Mia</h5>
+                        <p class="text small mb-0"><i class="bi bi-gender-female text-danger"></i> Hembra • 1 Año</p>
+                    </div>
+                    <div class="overlay-info">
+                        <h5 class="font-weight-bold text-warning mb-2">Mia</h5>
+                        <p class="small mb-2"><strong>Tamaño:</strong> Pequeño (4 kg)</p>
+                        <p class="small mb-2"><strong>Salud:</strong> Esterilizada y sana</p>
+                        <p class="small text-justify mb-3">Es una gatita extremadamente mimosa. Adora estar en el regazo de las personas y ronronea al menor contacto físico.</p>
+                        <button class="btn btn-warning btn-block font-weight-bold text-dark btn-adoptar" data-toggle="modal" data-target="#modalAdopcion" data-nombre="Mia">
+                            Adoptar a Mia
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                <div class="card tarjeta-mascota shadow-sm border-0">
+                    <div class="imagen-contenedor">
+                        <img src="img/perro3.jpg" class="card-img-top" alt="Toby">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title font-weight-bold text-dark mb-1">Toby</h5>
+                        <p class="text small mb-0"><i class="bi bi-gender-male text-primary"></i> Macho • 3 Años</p>
+                    </div>
+                    <div class="overlay-info">
+                        <h5 class="font-weight-bold text-warning mb-2">Toby</h5>
+                        <p class="small mb-2"><strong>Tamaño:</strong> Mediano (16 kg)</p>
+                        <p class="small mb-2"><strong>Salud:</strong> Vacunado y desparasitado</p>
+                        <p class="small text-justify mb-3">Toby es un caballero de cuatro patas. Le gusta caminar con serenidad y es la compañía perfecta para personas mayores.</p>
+                        <button class="btn btn-warning btn-block font-weight-bold text-dark btn-adoptar" data-toggle="modal" data-target="#modalAdopcion" data-nombre="Toby">
+                            Adoptar a Toby
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                <div class="card tarjeta-mascota shadow-sm border-0">
+                    <div class="imagen-contenedor">
+                        <img src="img/perro4.jpg" class="card-img-top" alt="Bella">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title font-weight-bold text-dark mb-1">Bella</h5>
+                        <p class="text small mb-0"><i class="bi bi-gender-female text-danger"></i> Hembra • 6 Meses</p>
+                    </div>
+                    <div class="overlay-info">
+                        <h5 class="font-weight-bold text-warning mb-2">Bella</h5>
+                        <p class="small mb-2"><strong>Tamaño:</strong> Pequeño (7 kg)</p>
+                        <p class="small mb-2"><strong>Salud:</strong> Vacunas iniciales completas</p>
+                        <p class="small text-justify mb-3">Es una cachorrita traviesa y muy alegre. Necesita paciencia y mucho cariño para continuar con su educación en casa.</p>
+                        <button class="btn btn-warning btn-block font-weight-bold text-dark btn-adoptar" data-toggle="modal" data-target="#modalAdopcion" data-nombre="Bella">
+                            Adoptar a Bella
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                <div class="card tarjeta-mascota shadow-sm border-0">
+                    <div class="imagen-contenedor">
+                        <img src="img/gato3.jpg" class="card-img-top" alt="Simba">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title font-weight-bold text-dark mb-1">Simba</h5>
+                        <p class="text small mb-0"><i class="bi bi-gender-male text-primary"></i> Macho • 2 Años</p>
+                    </div>
+                    <div class="overlay-info">
+                        <h5 class="font-weight-bold text-warning mb-2">Simba</h5>
+                        <p class="small mb-2"><strong>Tamaño:</strong> Mediano (5 kg)</p>
+                        <p class="small mb-2"><strong>Salud:</strong> Castrado y vacunado</p>
+                        <p class="small text-justify mb-3">Simba fue rescatado en Magdalena. Es un gatito tímido al inicio, pero una vez que entra en confianza, es el más fiel seguidor.</p>
+                        <button class="btn btn-warning btn-block font-weight-bold text-dark btn-adoptar" data-toggle="modal" data-target="#modalAdopcion" data-nombre="Simba">
+                            Adoptar a Simba
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                <div class="card tarjeta-mascota shadow-sm border-0">
+                    <div class="imagen-contenedor">
+                        <img src="img/perro5.jpg" class="card-img-top" alt="Coco">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title font-weight-bold text-dark mb-1">Coco</h5>
+                        <p class="text small mb-0"><i class="bi bi-gender-male text-primary"></i> Macho • 1.5 Años</p>
+                    </div>
+                    <div class="overlay-info">
+                        <h5 class="font-weight-bold text-warning mb-2">Coco</h5>
+                        <p class="small mb-2"><strong>Tamaño:</strong> Pequeño (9 kg)</p>
+                        <p class="small mb-2"><strong>Salud:</strong> Al día con antipulgas</p>
+                        <p class="small text-justify mb-3">Coco tiene una energía maravillosa. Le encanta saltar a los brazos y es el compañero ideal para salir a trotar por las mañanas.</p>
+                        <button class="btn btn-warning btn-block font-weight-bold text-dark btn-adoptar" data-toggle="modal" data-target="#modalAdopcion" data-nombre="Coco">
+                            Adoptar a Coco
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                <div class="card tarjeta-mascota shadow-sm border-0">
+                    <div class="imagen-contenedor">
+                        <img src="img/perro6.jpg" class="card-img-top" alt="Lola">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title font-weight-bold text-dark mb-1">Lola</h5>
+                        <p class="text small mb-0"><i class="bi bi-gender-female text-danger"></i> Hembra • 4 Años</p>
+                    </div>
+                    <div class="overlay-info">
+                        <h5 class="font-weight-bold text-warning mb-2">Lola</h5>
+                        <p class="small mb-2"><strong>Tamaño:</strong> Grande (28 kg)</p>
+                        <p class="small mb-2"><strong>Salud:</strong> Esterilizada y con microchip</p>
+                        <p class="small text-justify mb-3">Lola fue rescatada de las calles. Es súper tranquila, no ladra por gusto y ya está completamente acostumbrada a vivir dentro de un hogar.</p>
+                        <button class="btn btn-warning btn-block font-weight-bold text-dark btn-adoptar" data-toggle="modal" data-target="#modalAdopcion" data-nombre="Lola">
+                            Adoptar a Lola
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                <div class="card tarjeta-mascota shadow-sm border-0">
+                    <div class="imagen-contenedor">
+                        <img src="img/gato4.jpg" class="card-img-top" alt="Pelusa">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title font-weight-bold text-dark mb-1">Pelusa</h5>
+                        <p class="text small mb-0"><i class="bi bi-gender-female text-danger"></i> Hembra • 1.2 Años</p>
+                    </div>
+                    <div class="overlay-info">
+                        <h5 class="font-weight-bold text-warning mb-2">Pelusa</h5>
+                        <p class="small mb-2"><strong>Tamaño:</strong> Pequeño (4.2 kg)</p>
+                        <p class="small mb-2"><strong>Salud:</strong> Esterilizada y cepillada</p>
+                        <p class="small text-justify mb-3">Pelusa requiere cuidados en su hermoso pelaje largo. Es una reina en la casa y ama ronronear mientras descansa junto a su humano.</p>
+                        <button class="btn btn-warning btn-block font-weight-bold text-dark btn-adoptar" data-toggle="modal" data-target="#modalAdopcion" data-nombre="Pelusa">
+                            Adoptar a Pelusa
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                <div class="card tarjeta-mascota shadow-sm border-0">
+                    <div class="imagen-contenedor">
+                        <img src="img/perro7.jpg" class="card-img-top" alt="Zeus">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title font-weight-bold text-dark mb-1">Zeus</h5>
+                        <p class="text small mb-0"><i class="bi bi-gender-male text-primary"></i> Macho • 5 Años</p>
+                    </div>
+                    <div class="overlay-info">
+                        <h5 class="font-weight-bold text-warning mb-2">Zeus</h5>
+                        <p class="small mb-2"><strong>Tamaño:</strong> Grande (32 kg)</p>
+                        <p class="small mb-2"><strong>Salud:</strong> Vacunas e inmunizaciones al día</p>
+                        <p class="small text-justify mb-3">Zeus es un abuelito de alma joven. Le fascina echarse en el pasto y es sumamente protector con toda la familia.</p>
+                        <button class="btn btn-warning btn-block font-weight-bold text-dark btn-adoptar" data-toggle="modal" data-target="#modalAdopcion" data-nombre="Zeus">
+                            Adoptar a Zeus
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                <div class="card tarjeta-mascota shadow-sm border-0">
+                    <div class="imagen-contenedor">
+                        <img src="img/perro8.jpg" class="card-img-top" alt="Mora">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title font-weight-bold text-dark mb-1">Mora</h5>
+                        <p class="text small mb-0"><i class="bi bi-gender-female text-danger"></i> Hembra • 9 Meses</p>
+                    </div>
+                    <div class="overlay-info">
+                        <h5 class="font-weight-bold text-warning mb-2">Mora</h5>
+                        <p class="small mb-2"><strong>Tamaño:</strong> Mediano (12 kg)</p>
+                        <p class="small mb-2"><strong>Salud:</strong> Esterilizada recientemente</p>
+                        <p class="small text-justify mb-3">Mora es una perrita mestiza súper enérgica. Es ideal para deportistas o familias que salgan seguido de excursión.</p>
+                        <button class="btn btn-warning btn-block font-weight-bold text-dark btn-adoptar" data-toggle="modal" data-target="#modalAdopcion" data-nombre="Mora">
+                            Adoptar a Mora
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+   <footer class="bg-dark text-white pt-5 pb-4 mt-auto">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6 mb-4">
+                    <h5 class="text-warning">
+                        <i class="bi bi-paw-fill"></i> Casa Hogar Marcando Huellas
+                    </h5>
+                    <p class="text-white-50 small">
+                        Somos un refugio sin fines de lucro dedicado al rescate, rehabilitación y adopción de mascotas en situación de abandono en Lima, Perú.
+                    </p>
+                </div>
+
+                <div class="col-12 col-md-6 mb-4 text-md-right">
+                    <h5 class="text-white">Contáctanos</h5>
+                    <p class="text-white-50 small">
+                        <i class="bi bi-geo-alt text-warning"></i> Av. Universitaria 123, San Miguel, Lima<br>
+                        <i class="bi bi-telephone text-warning"></i> +51 987 654 321<br>
+                        <i class="bi bi-envelope text-warning"></i> contacto@huellitas.pe
+                    </p>
+                </div>
+            </div>
+            <hr class="bg-secondary">
+            <div class="row">
+                <div class="col text-center">
+                    <p class="text-white-50 mb-0 small">
+                        &copy; 2026 Casa Hogar Marcando Huellas. Todos los derechos reservados.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="modalAdopcion" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-dark text-white">
+                    <h5 class="modal-title">
+                        <i class="bi bi-heart-fill text-danger"></i> Solicitud de Adopción
+                    </h5>
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <form id="formAdopcion">
+                            <div class="form-group">
+                                <label for="nombreMascota" class="font-weight-bold">Mascota elegida:</label>
+                                <input type="text" class="form-control bg-light text-dark font-weight-bold" id="nombreMascota" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="nombreUsuario">Tu Nombre Completo:</label>
+                                <input type="text" class="form-control" id="nombreUsuario" placeholder="Ej. Juan Pérez" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="telefono">Teléfono de Contacto:</label>
+                                <input type="tel" class="form-control" id="telefono" placeholder="Ej. 987654321" required>
+                            </div>
+                            <div class="text-right mt-4">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-warning font-weight-bold text-dark">Enviar Solicitud</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $('#modalAdopcion').on('show.bs.modal', function (event) {
+                var boton = $(event.relatedTarget);
+                var mascota = boton.data('nombre');
+                $('#nombreMascota').val(mascota);
+            });
+
+            $('#formAdopcion').on('submit', function (event) {
+                event.preventDefault();
+
+                var adoptante = $('#nombreUsuario').val();
+                var mascota = $('#nombreMascota').val();
+
+                alert("¡Felicidades " + adoptante + "! Tu solicitud para adoptar a " + mascota + " ha sido recibida con éxito.\nTe contactaremos pronto.");
+
+                $('#modalAdopcion').modal('hide');
+                this.reset();
+            });
+            
+            let estaLogueado = localStorage.getItem("sesionIniciada");
+            let nombreGuardado = localStorage.getItem("usuarioNombre");
+
+            if (estaLogueado === "true" && nombreGuardado) {
+            if (document.getElementById("opcionRegistro")) document.getElementById("opcionRegistro").classList.add("d-none");
+            if (document.getElementById("opcionSesion")) document.getElementById("opcionSesion").classList.add("d-none");
+
+            if (document.getElementById("nombreUsuarioHeader")) document.getElementById("nombreUsuarioHeader").textContent = nombreGuardado;
+            if (document.getElementById("opcionUsuario")) document.getElementById("opcionUsuario").classList.remove("d-none");
+            if (document.getElementById("opcionCerrarSesion")) document.getElementById("opcionCerrarSesion").classList.remove("d-none");
+        }
+    });
+
+        function cerrarSesion() {
+            localStorage.removeItem("sesionIniciada");
+            window.location.reload();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa Hogar de Marcando Huellas - Adopción de Mascotas</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+
+<body class="d-flex flex-column min-vh-100" style="padding-top: 70px;">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-house-fill text-warning"></i>Marcando Huellas
+            </a> 
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuPrincipal">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menuPrincipal">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-warning font-weight-bold" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="servicios.html">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="mascotas.html">Mascotas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="registro.html">Registrarse</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sesion.html">Inicar Sesion</a>
+                    </li>
+                    <li class="nav-item d-none" id="opcionUsuario">
+                        <span class="nav-link text-warning font-weight-bold">
+                                <i class="bi bi-person-circle"></i> <span id="nombreUsuarioHeader">Usuario</span>
+                        </span>
+                    </li>
+                    <li class="nav-item d-none" id="opcionCerrarSesion">
+                        <a class="nav-link text-danger" href="#" onclick="cerrarSesion()">
+                            <i class="bi bi-box-arrow-right"></i> Salir
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container text-center my-4">
+        <div class="jumbotron text-center">
+            <h2 class="display-4">Bienvenidos a Marcando huellas</h2>
+            <p class="lead"> Nuestra misión es rescatar, rehabilitar y encontrar hogares llenos de amor para mascotas desamparadas. </p>
+            <hr class="my-4">
+            <p>Conoce a nuestros pequeños amigos que están buscando una segunda oportunidad y listos para ser adoptados.</p>
+            <a class="btn btn-primary btn-lg font-weight-bold text-white" href="mascotas.html" role="button">
+                <i class="bi bi-search"></i> Ver Mascotas en Adopción
+            </a>
+        </div>
+    </div>
+
+    <div class="container my-4" id="mascotas">
+        <div class="text-center mb-5">
+            <h2><i class="bi bi-paw-fill text-warning"></i> Nuestras Mascotas Destacadas</h2>
+            <p class="text-muted">Conoce a algunos de nuestros pequeños que buscan un hogar lleno de amor.</p>
+        </div>
+        <div class="row">
+            
+            <div class="col-12 col-md-4 mb-4">
+                <div class="card shadow-sm h-100">
+                    <img src="img/perro1.jpg" class="card-img-top w-100" style="height: 200px; object-fit: cover;" alt="Perro Bobby">
+                    <div class="card-body">
+                        <h5 class="card-title font-weight-bold">Bobby</h5>
+                        <p class="card-text text-muted small">
+                            <i class="bi bi-calendar-event text-warning"></i> 1 año • Macho
+                        </p>
+                        <p class="card-text">Es muy juguetón, le encanta correr por el parque y es sumamente cariñoso con los niños.</p>
+                    </div>
+                    <div class="card-footer bg-white border-0 d-flex justify-content-between">
+                        <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalAdopcion" data-nombre="Bobby">
+                            <i class="bi bi-heart-fill text-danger"></i> Adoptar
+                        </button>
+                        <a href="detalle.html?mascota=bobby" class="btn btn-outline-secondary btn-sm">
+                            <i class="bi bi-eye"></i> Ver más
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-4 mb-4">
+                <div class="card shadow-sm h-100">
+                    <img src="img/gato1.jpg" class="card-img-top w-100" style="height: 200px; object-fit: cover;" alt="Gata Luna">
+                    <div class="card-body">
+                        <h5 class="card-title font-weight-bold">Luna</h5>
+                        <p class="card-text text-muted small">
+                            <i class="bi bi-calendar-event text-warning"></i> 8 meses • Hembra
+                        </p>
+                        <p class="card-text">Luna es sumamente tranquila, le fascina dormir cerca de la ventana y es muy independiente.</p>
+                    </div>
+                    <div class="card-footer bg-white border-0 d-flex justify-content-between">
+                        <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalAdopcion" data-nombre="Luna">
+                            <i class="bi bi-heart-fill text-danger"></i> Adoptar
+                        </button>
+                        <a href="detalle.html?mascota=luna" class="btn btn-outline-secondary btn-sm">
+                            <i class="bi bi-eye"></i> Ver más
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-4 mb-4">
+                <div class="card shadow-sm h-100">
+                    <img src="img/perro2.jpg" class="card-img-top w-100" style="height: 200px; object-fit: cover;" alt="Perro Rocky">
+                    <div class="card-body">
+                        <h5 class="card-title font-weight-bold">Rocky</h5>
+                        <p class="card-text text-muted small">
+                            <i class="bi bi-calendar-event text-warning"></i> 2 años • Macho
+                        </p>
+                        <p class="card-text">Rocky es un excelente guardián, muy leal, protector y ya sabe pasear perfectamente con correa.</p>
+                    </div>
+                    <div class="card-footer bg-white border-0 d-flex justify-content-between">
+                        <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalAdopcion" data-nombre="Rocky">
+                            <i class="bi bi-heart-fill text-danger"></i> Adoptar
+                        </button>
+                        <a href="detalle.html?mascota=rocky" class="btn btn-outline-secondary btn-sm">
+                            <i class="bi bi-eye"></i> Ver más
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white pt-5 pb-4 mt-auto">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6 mb-4">
+                    <h5 class="text-warning">
+                        <i class="bi bi-paw-fill"></i> Casa Hogar Marcando Huellas
+                    </h5>
+                    <p class="text-white-50 small">
+                        Somos un refugio sin fines de lucro dedicado al rescate, rehabilitación y adopción de mascotas en situación de abandono en Lima, Perú.
+                    </p>
+                </div>
+                
+                <div class="col-12 col-md-6 mb-4 text-md-right">
+                    <h5 class="text-white">Contáctanos</h5>
+                    <p class="text-white-50 small">
+                        <i class="bi bi-geo-alt text-warning"></i> Av. Universitaria 123, San Miguel, Lima<br>
+                        <i class="bi bi-telephone text-warning"></i> +51 987 654 321<br>
+                        <i class="bi bi-envelope text-warning"></i> contacto@huellitas.pe
+                    </p>
+                </div>
+            </div>
+            <hr class="bg-secondary">
+            <div class="row">
+                <div class="col text-center">
+                    <p class="text-white-50 mb-0 small">
+                        &copy; 2026 Casa Hogar Marcando Huellas. Todos los derechos reservados.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="modalAdopcion">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-dark text-white">
+                    <h5 class="modal-title">
+                        <i class="bi bi-heart-fill text-danger"></i> Solicitud de Adopción
+                    </h5>
+                    <button type="button" class="close text-dark mx-2" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <form id="formAdopcion">
+                            <div class="form-group">
+                                <label for="nombreMascota" class="font-weight-bold">Mascota elegida:</label>
+                                <input type="text" class="form-control bg-light text-dark font-weight-bold" id="nombreMascota" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="nombreUsuario">Tu Nombre Completo:</label>
+                                <input type="text" class="form-control" id="nombreUsuario" placeholder="Ej. Juan Pérez" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="telefono">Teléfono de Contacto:</label>
+                                <input type="tel" class="form-control" id="telefono" placeholder="Ej. 987654321" required>
+                            </div>
+                            <div class="text-right mt-4">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-warning font-weight-bold text-dark">Enviar Solicitud</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let estaLogueado = localStorage.getItem("sesionIniciada");
+            let nombreGuardado = localStorage.getItem("usuarioNombre");
+
+            if (estaLogueado === "true" && nombreGuardado) {
+                if (document.getElementById("opcionRegistro")) document.getElementById("opcionRegistro").classList.add("d-none");
+                if (document.getElementById("opcionSesion")) document.getElementById("opcionSesion").classList.add("d-none");
+
+                if (document.getElementById("nombreUsuarioHeader")) document.getElementById("nombreUsuarioHeader").textContent = nombreGuardado;
+                if (document.getElementById("opcionUsuario")) document.getElementById("opcionUsuario").classList.remove("d-none");
+                if (document.getElementById("opcionCerrarSesion")) document.getElementById("opcionCerrarSesion").classList.remove("d-none");
+            }
+        });
+
+        function cerrarSesion() {
+            localStorage.clear();
+            window.location.reload(); 
+        }
+
+        $('#modalAdopcion').on('show.bs.modal', function (event) {
+        let boton = $(event.relatedTarget);
+        let nombreMascota = boton.data('nombre');
+        $('#nombreMascota').val(nombreMascota);
+    });
+
+    </script>
+</body>
+</html>

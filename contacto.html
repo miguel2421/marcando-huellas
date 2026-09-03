@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcando Huellas - Contáctanos</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body class="d-flex flex-column" style="min-height: 100vh;">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="bi bi-paw-fill text-warning"></i> Marcando Huellas</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuPrincipal">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menuPrincipal">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="servicios.html">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="mascotas.html">Mascotas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-warning" href="contacto.html">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="registro.html">Registrarse</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="sesion.html">Inicar Sesion</a>
+                    </li>
+                    <li class="nav-item d-none" id="opcionUsuario">
+                        <span class="nav-link text-warning font-weight-bold">
+                                <i class="bi bi-person-circle"></i> <span id="nombreUsuarioHeader">Usuario</span>
+                        </span>
+                    </li>
+                    <li class="nav-item d-none" id="opcionCerrarSesion">
+                        <a class="nav-link text-danger" href="#" onclick="cerrarSesion()">
+                            <i class="bi bi-box-arrow-right"></i> Salir
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="bg-light py-5 text-center border-bottom">
+        <div class="container">
+            <h1 class="display-4 font-weight-bold">Ponte en Contacto</h1>
+            <p class="lead text-muted">¿Tienes dudas, deseas ser voluntario o quieres visitarnos? Déjanos un mensaje.</p>
+        </div>
+    </div>
+
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-12 col-md-6 mb-5">
+                <div class="card shadow-sm p-4 border-0">
+                    <h3 class="font-weight-bold mb-4 text-dark">
+                        <i class="bi bi-envelope-paper text-primary"></i> Envíanos un Mensaje
+                    </h3>
+
+                    <form id="formContacto">
+                        <div class="form-group mb-2">
+                            <label for="conNombre" class="font-weight-bold">Nombre Completo:</label>
+                            <div class="input-group mb-1">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="bi bi-person"></i></span>
+                                </div>
+                                <input type="text" class="form-control" id="conNombre" placeholder="Ej. Juan Pérez" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group mb-2">
+                            <label for="conEmail" class="font-weight-bold">Correo Electrónico:</label>
+                            <div class="input-group mb-1">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                </div>
+                                <input type="email" class="form-control" id="conEmail" placeholder="correo@ejemplo.com" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group mb-2 ">
+                            <label for="conAsunto" class="font-weight-bold">Asunto de tu consulta:</label>
+                            <select class="form-control" id="conAsunto">
+                                <option value="Adopción">Quiero Adoptar una Mascota</option>
+                                <option value="Voluntariado">Ser Voluntario / Apadrinar</option>
+                                <option value="Donación">Donaciones y Apoyo Económico</option>
+                                <option value="Otros">Otras consultas generales</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group mb-1">
+                            <label for="conMensaje" class="font-weight-bold">Tu Mensaje o Consulta:</label>
+                            <textarea class="form-control" id="conMensaje" rows="4" placeholder="Escribe aquí detalladamente lo que necesitas..." required></textarea>
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-primary btn-block btn-lg font-weight-bold shadow-sm">
+                            <i class="bi bi-send-fill"></i> Enviar Mensaje
+                        </button>
+                    </form>
+
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 mb-5">
+                <div class="card bg-dark text-white p-4 border-0 mb-4 shadow-sm">
+                    <h3 class="font-weight-bold text-warning mb-4">
+                        <i class="bi bi-info-circle-fill"></i> Datos del Refugio
+                    </h3>
+                    
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-3 d-flex align-items-start">
+                            <i class="bi bi-geo-alt-fill text-warning mr-3" style="font-size: 1.3rem;"></i>
+                            <div>
+                                <span class="font-weight-bold d-block">Nuestra Dirección:</span>
+                                <span class="text-white-50">Av. Universitaria 123, San Miguel, Lima, Perú.</span>
+                            </div>
+                        </li>
+                        <li class="mb-3 d-flex align-items-start">
+                            <i class="bi bi-telephone-fill text-warning mr-3" style="font-size: 1.3rem;"></i>
+                            <div>
+                                <span class="font-weight-bold d-block">Teléfono Celular:</span>
+                                <span class="text-white-50">+51 987 654 321 (Atención de 09:00 AM a 06:00 PM)</span>
+                            </div>
+                        </li>
+                        <li class="mb-3 d-flex align-items-start">
+                            <i class="bi bi-envelope-fill text-warning mr-3" style="font-size: 1.3rem;"></i>
+                            <div>
+                                <span class="font-weight-bold d-block">Correo Institucional:</span>
+                                <span class="text-white-50">contacto@huellitas.pe</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <br>
+                <div class="card border-0 bg-transparent text-center my-3">
+                    <h5 class="font-weight-bold text-dark mb-2">
+                        <i class="bi bi-map-fill text-danger"></i> Ubícanos en el mapa
+                    </h5>
+                    <a href="https://maps.app.goo.gl/mcQe7qbA8SXnd2DR8" target="_blank">
+                        <img src="img/mapa.jpg"class="img-fluid rounded mx-auto d-block"style="max-height: 180px; object-fit: cover;" alt="Mapa ubicación">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white pt-5 pb-4 mt-auto">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6 mb-4">
+                    <h5 class="text-warning">
+                        <i class="bi bi-paw-fill"></i> Casa Hogar Marcando Huellas
+                    </h5>
+                    <p class="text-white-50 small">
+                        Somos un refugio sin fines de lucro dedicado al rescate, rehabilitación y adopción de mascotas en situación de abandono en Lima, Perú.
+                    </p>
+                </div>
+                
+                <div class="col-12 col-md-6 mb-4 text-md-right">
+                    <h5 class="text-white">Contáctanos</h5>
+                    <p class="text-white-50 small">
+                        <i class="bi bi-geo-alt text-warning"></i> Av. Universitaria 123, San Miguel, Lima<br>
+                        <i class="bi bi-telephone text-warning"></i> +51 987 654 321<br>
+                        <i class="bi bi-envelope text-warning"></i> contacto@huellitas.pe
+                    </p>
+                </div>
+            </div>
+            <hr class="bg-secondary">
+            <div class="row">
+                <div class="col text-center">
+                    <p class="text-white-50 mb-0 small">
+                        &copy; 2026 Casa Hogar Marcando Huellas. Todos los derechos reservados.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            
+            $('#formContacto').on('submit', function (event) {
+                event.preventDefault();
+                var nombre = $('#conNombre').val();
+                alert("¡Hola " + nombre + "! Tu mensaje ha sido enviado con éxito al refugio Huellitas.\nTe responderemos por correo electrónico muy pronto.");
+                this.reset();
+            });
+
+            let estaLogueado = localStorage.getItem("sesionIniciada");
+            let nombreGuardado = localStorage.getItem("usuarioNombre");
+
+            if (estaLogueado === "true" && nombreGuardado) {
+            if (document.getElementById("opcionRegistro")) document.getElementById("opcionRegistro").classList.add("d-none");
+            if (document.getElementById("opcionSesion")) document.getElementById("opcionSesion").classList.add("d-none");
+
+            if (document.getElementById("nombreUsuarioHeader")) document.getElementById("nombreUsuarioHeader").textContent = nombreGuardado;
+            if (document.getElementById("opcionUsuario")) document.getElementById("opcionUsuario").classList.remove("d-none");
+            if (document.getElementById("opcionCerrarSesion")) document.getElementById("opcionCerrarSesion").classList.remove("d-none");
+        }
+    });
+
+        function cerrarSesion() {
+            localStorage.removeItem("sesionIniciada");
+            window.location.reload(); 
+    }
+    </script>
+</body>
+</html>

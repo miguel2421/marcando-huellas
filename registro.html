@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcando Huellas - Registro de Usuario</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            padding-top: 70px;
+        }
+
+        .card-registro {
+            max-width: 480px;
+            margin: 0 auto;
+            border: none;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-paw-fill text-warning"></i> Marcando Huellas
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuPrincipal">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menuPrincipal">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="servicios.html">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="mascotas.html">Mascotas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link text-warning font-weight-bold" href="registro.html">Registrarse</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sesion.html">Iniciar Sesión</a>
+                    </li>
+                    <li class="nav-item d-none" id="opcionUsuario">
+                        <span class="nav-link text-warning font-weight-bold">
+                                <i class="bi bi-person-circle"></i> <span id="nombreUsuarioHeader">Usuario</span>
+                        </span>
+                    </li>
+                    <li class="nav-item d-none" id="opcionCerrarSesion">
+                        <a class="nav-link text-danger" href="#" onclick="cerrarSesion()">
+                            <i class="bi bi-box-arrow-right"></i> Salir
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="bg-light py-4 text-center border-bottom mb-4">
+        <div class="container">
+            <h1 class="display-4 font-weight-bold">Crear una Cuenta</h1>
+            <p class="lead">Regístrate para formar parte de nuestra comunidad y gestionar tus adopciones.</p>
+        </div>
+    </div>
+
+    <div class="container mb-5">
+        <div class="card card-registro shadow-sm">
+            <div class="card-body p-4">
+                <h4 class="card-title text-center mb-4 font-weight-bold">
+                    <i class="bi bi-person-plus-fill text-warning"></i> Registro
+                </h4>
+
+                <div id="mensajeError" class="alert alert-danger d-none" role="alert">
+                    </div>
+
+                <form id="formRegistro">
+                    <div class="form-group mb-3">
+                        <label for="regNombre" class="font-weight-bold">Nombre Completo:</label>
+                        <input type="text" class="form-control" id="regNombre" placeholder="Ej. Juan Pérez">
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="regEmail" class="font-weight-bold">Correo Electrónico:</label>
+                        <input type="email" class="form-control" id="regEmail" placeholder="nombre@correo.com">
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="regPassword" class="font-weight-bold">Contraseña:</label>
+                        <input type="password" class="form-control" id="regPassword" placeholder="Ingresa tu contraseña">
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="regConfirmPassword" class="font-weight-bold">Confirmar Contraseña:</label>
+                        <input type="password" class="form-control" id="regConfirmPassword" placeholder="Repite tu contraseña">
+                    </div>
+
+                    <button type="button" onclick="validarRegistro()" class="btn btn-warning w-100 font-weight-bold text-dark mt-2">
+                        Registrarse
+                    </button>
+                </form>
+
+                <div class="text-center mt-3">
+                    <small class="text-muted">¿Ya tienes cuenta? <a href="sesion.html" class="text-warning font-weight-bold">Inicia Sesión aquí</a></small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalExito" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-dark text-white">
+                    <h5 class="modal-title">
+                        <i class="bi bi-check-circle-fill text-warning"></i> Registro Completado
+                    </h5>
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center py-4">
+                    <p class="mb-1 font-weight-bold">¡Tu cuenta ha sido creada con éxito!</p>
+                    <p class="text-muted small">Ahora puedes iniciar sesión con tus datos.</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="sesion.html" class="btn btn-warning font-weight-bold text-dark">Ir a Iniciar Sesión</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white pt-5 pb-4 mt-auto">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6 mb-4">
+                    <h5 class="text-warning">
+                        <i class="bi bi-paw-fill"></i> Casa Hogar Marcando Huellas
+                    </h5>
+                    <p class="text-white-50 small">
+                        Somos un refugio sin fines de lucro dedicado al rescate, rehabilitación y adopción de mascotas en situación de abandono en Lima, Perú.
+                    </p>
+                </div>
+
+                <div class="col-12 col-md-6 mb-4 text-md-right">
+                    <h5 class="text-white">Contáctanos</h5>
+                    <p class="text-white-50 small">
+                        <i class="bi bi-geo-alt text-warning"></i> Av. Universitaria 123, San Miguel, Lima<br>
+                        <i class="bi bi-telephone text-warning"></i> +51 987 654 321<br>
+                        <i class="bi bi-envelope text-warning"></i> contacto@huellitas.pe
+                    </p>
+                </div>
+            </div>
+            <hr class="bg-secondary">
+            <div class="row">
+                <div class="col text-center">
+                    <p class="text-white-50 mb-0 small">
+                        &copy; 2026 Casa Hogar Marcando Huellas. Todos los derechos reservados.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        function validarRegistro() {
+            let nombre = document.getElementById("regNombre").value;
+            let email = document.getElementById("regEmail").value;
+            let pass = document.getElementById("regPassword").value;
+            let confirmPass = document.getElementById("regConfirmPassword").value;
+            
+            let cajaMensaje = document.getElementById("mensajeError");
+
+            cajaMensaje.classList.add("d-none");
+
+            if (nombre === "" || email === "" || pass === "" || confirmPass === "") {
+                cajaMensaje.textContent = "Por favor, debes llenar todos los campos antes de registrarte.";
+                cajaMensaje.classList.remove("d-none");
+                return;
+            }
+
+            if (!email.includes("@gmail") || !email.endsWith(".com")) {
+                cajaMensaje.textContent = "Ingresa un correo válido (debe ser @gmail y terminar en '.com').";
+                cajaMensaje.classList.remove("d-none");
+                return;
+            }
+
+            if (pass !== confirmPass) {
+                cajaMensaje.textContent = "Las contraseñas no coinciden. Verifícalas e intenta de nuevo.";
+                cajaMensaje.classList.remove("d-none");
+                return;
+            }
+
+            localStorage.setItem("usuarioNombre", nombre);
+            localStorage.setItem("usuarioCorreo", email);
+            localStorage.setItem("usuarioPassword", pass);
+
+            $('#modalExito').modal('show');
+        }
+        
+            document.addEventListener("DOMContentLoaded", function() {
+            let estaLogueado = localStorage.getItem("sesionIniciada");
+            let nombreGuardado = localStorage.getItem("usuarioNombre");
+
+            if (estaLogueado === "true" && nombreGuardado) {
+            if (document.getElementById("opcionRegistro")) document.getElementById("opcionRegistro").classList.add("d-none");
+            if (document.getElementById("opcionSesion")) document.getElementById("opcionSesion").classList.add("d-none");
+
+            if (document.getElementById("nombreUsuarioHeader")) document.getElementById("nombreUsuarioHeader").textContent = nombreGuardado;
+            if (document.getElementById("opcionUsuario")) document.getElementById("opcionUsuario").classList.remove("d-none");
+            if (document.getElementById("opcionCerrarSesion")) document.getElementById("opcionCerrarSesion").classList.remove("d-none");
+        }
+    });
+
+        function cerrarSesion() {
+            localStorage.removeItem("sesionIniciada");
+            window.location.reload(); 
+        }
+    </script>
+</body>
+</html>

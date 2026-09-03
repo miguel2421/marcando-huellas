@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcando Huellas - Nuestros Servicios</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body class="d-flex flex-column" style="min-height: 100vh;">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-paw-fill text-warning"></i> Marcando Huellas
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuPrincipal">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="menuPrincipal">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-warning" href="servicios.html">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="mascotas.html">Mascotas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>
+                    <li class="nav-item" id="opcionRegistro">
+                        <a class="nav-link" href="registro.html">Registrarse</a>
+                    </li>
+                     <li class="nav-item" id="opcionSesion">
+                        <a class="nav-link" href="sesion.html">Inicar Sesion</a>
+                    </li>
+                    <li class="nav-item d-none" id="opcionUsuario">
+                        <span class="nav-link text-warning font-weight-bold">
+                                <i class="bi bi-person-circle"></i> <span id="nombreUsuarioHeader">Usuario</span>
+                        </span>
+                    </li>
+                    <li class="nav-item d-none" id="opcionCerrarSesion">
+                        <a class="nav-link text-danger" href="#" onclick="cerrarSesion()">
+                            <i class="bi bi-box-arrow-right"></i> Salir
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="bg-light py-5 text-center border-bottom">
+        <div class="container">
+            <h1 class="display-4 font-weight-bold">Nuestros Servicios</h1>
+            <p class="lead">Ofrecemos atención integral para mantener sanos y felices a tus consentidos, ayudando también a financiar nuestro refugio.</p>
+        </div>
+    </div>
+
+    <div class="container my-5">
+        <div class="text-center mb-5">
+            <h2><i class="bi bi-heart-pulse-fill text-danger"></i> Cuidado y Bienestar</h2>
+            <p class="text-muted">Cada servicio contratado apoya directamente la alimentación y rescate de más mascotas desamparadas.</p>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-md-4 mb-4">
+                <div class="card shadow-sm h-100 border-0">
+                    <img src="img/servicio1.jpg" class="card-img-top w-100" style="height: 300px; object-fit: cover;" alt="Consulta Veterinaria">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="card-title font-weight-bold mb-0">Atención Veterinaria</h5>
+                            <span class="badge badge-success px-2 py-1">Desde S/. 40</span>
+                        </div>
+                        <p class="card-text text-muted small">Consulta médica preventiva, chequeos de salud, vacunas esenciales y orientación nutricional dictados por profesionales colegiados.</p>
+                    </div>
+                    <div class="card-footer bg-white border-0 pt-0">
+                        <button class="btn btn-primary btn-block font-weight-bold" data-toggle="modal" data-target="#modalReserva" data-servicio="Atención Veterinaria">
+                            <i class="bi bi-calendar-check"></i> Reservar Cita
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-4 mb-4">
+                <div class="card shadow-sm h-100 border-0">
+                    <img src="img/servicio2.jpg" class="card-img-top w-100" style="height: 300px; object-fit: cover;" alt="Baño y Grooming">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="card-title font-weight-bold mb-0">Baño y Spa</h5>
+                            <span class="badge badge-success px-2 py-1">Desde S/. 30</span>
+                        </div>
+                        <p class="card-text text-muted small"> Baños medicados, corte de pelo según la raza, limpieza de oídos, corte de uñas y perfumado para que luzcan y huelan espectacular.</p>
+                    </div>
+                    <div class="card-footer bg-white border-0 pt-0">
+                        <button class="btn btn-primary btn-block font-weight-bold" data-toggle="modal" data-target="#modalReserva" data-servicio="Baño y Spa">
+                            <i class="bi bi-calendar-check"></i> Reservar Cita
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-4 mb-4">
+                <div class="card shadow-sm h-100 border-0">
+                    <img src="img/servicio3.jpg" class="card-img-top w-100" style="height: 300px; object-fit: cover;" alt="Hospedaje Temporal">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="card-title font-weight-bold mb-0">Hospedaje Canino</h5>
+                            <span class="badge badge-success px-2 py-1">S/. 25 por día</span>
+                        </div>
+                        <p class="card-text text-muted small">¿Sales de viaje? Déjalos con nosotros. Contamos con amplios espacios recreativos, alimentación premium y supervisión veterinaria las 24 horas.</p>
+                    </div>
+                    <div class="card-footer bg-white border-0 pt-0">
+                        <button class="btn btn-primary btn-block font-weight-bold" data-toggle="modal" data-target="#modalReserva" data-servicio="Hospedaje Canino">
+                            <i class="bi bi-calendar-check"></i> Reservar Cita
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container my-5">
+        <div class="text-center mb-4">
+            <h2><i class="bi bi-clock-history text-primary"></i> Horarios de Atención y Costos</h2>
+            <p class="text-muted">Revisa las tarifas detalladas de nuestros servicios principales para programar tu visita.</p>
+        </div>
+
+        <div class="table-responsive shadow-sm rounded">
+            <table class="table table-hover table-bordered text-center mb-0">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Servicio</th>
+                        <th scope="col">Días Disponibles</th>
+                        <th scope="col">Horario</th>
+                        <th scope="col">Costo Promedio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="font-weight-bold text-left">
+                            <i class="bi bi-heartpulse text-danger mr-2"></i> Consulta General
+                        </td>
+                        <td>Lunes a Sábado</td>
+                        <td>08:00 AM - 08:00 PM</td>
+                        <td>S/. 40.00</td>
+                    </tr>
+                    <tr>
+                        <td class="font-weight-bold text-left">
+                            <i class="bi bi-droplet-half text-info mr-2"></i> Baño Medicado
+                        </td>
+                        <td>Lunes a Domingo</td>
+                        <td>09:00 AM - 06:00 PM</td>
+                        <td>S/. 35.00</td>
+                    </tr>
+                    <tr>
+                        <td class="font-weight-bold text-left">
+                            <i class="bi bi-scissors text-secondary mr-2"></i> Corte de Pelo y Uñas
+                        </td>
+                        <td>Martes a Sábado</td>
+                        <td>09:00 AM - 05:00 PM</td>
+                        <td>S/. 30.00</td>
+                    </tr>
+                    <tr>
+                        <td class="font-weight-bold text-left">
+                            <i class="bi bi-shield-check text-success mr-2"></i> Vacunación Triple
+                        </td>
+                        <td>Lunes a Sábado</td>
+                        <td>08:00 AM - 12:00 PM</td>
+                        <td>S/. 50.00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white pt-5 pb-4 mt-auto">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6 mb-4">
+                    <h5 class="text-warning">
+                        <i class="bi bi-paw-fill"></i> Casa Hogar Marcando Huellas
+                    </h5>
+                    <p class="text-white-50 small">
+                        Somos un refugio sin fines de lucro dedicado al rescate, rehabilitación y adopción de mascotas en situación de abandono en Lima, Perú.
+                    </p>
+                </div>          
+                <div class="col-12 col-md-6 mb-4 text-md-right">
+                    <h5 class="text-white">Contáctanos</h5>
+                    <p class="text-white-50 small">
+                        <i class="bi bi-geo-alt text-warning"></i> Av. Universitaria 123, San Miguel, Lima<br>
+                        <i class="bi bi-telephone text-warning"></i> +51 987 654 321<br>
+                        <i class="bi bi-envelope text-warning"></i> contacto@huellitas.pe
+                    </p>
+                </div>
+            </div>
+            <hr class="bg-secondary">
+            <div class="row">
+                <div class="col text-center">
+                    <p class="text-white-50 mb-0 small">
+                        &copy; 2026 Casa Hogar Marcando Huellas. Todos los derechos reservados.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="modalReserva">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title"><i class="bi bi-calendar-check mx-2"></i> Reservar Cita</h5>
+                    <button type="button" class="close text-dark mx-2" data-dismiss="modal"><span>&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formReserva">
+                        <div class="form-group">
+                            <label class="font-weight-bold">Servicio elegido:</label>
+                            <input type="text" class="form-control bg-light font-weight-bold" id="reserva-servicio-input" readonly>
+                        </div>
+                        <div class="form-group my-3">
+                            <label for="reserva-fecha" class="font-weight-bold">Elige una fecha:</label>
+                            <input type="date" class="form-control" id="reserva-fecha" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block font-weight-bold">
+                            <i class="bi bi-check-circle mx-2"></i> Confirmar Cita
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalConfirmacion">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center">
+                <div class="modal-body py-5">
+                    <i class="bi bi-check-circle-fill text-success" style="font-size: 3rem;"></i>
+                    <h4 class="font-weight-bold mt-3">¡Cita Reservada!</h4>
+                    <p class="mb-0">Tu cita para <strong id="confirmacion-servicio"></strong></p>
+                    <p>ha sido registrada para el <strong id="confirmacion-fecha"></strong>.</p>
+                    <button type="button" class="btn btn-outline-primary mt-2" data-dismiss="modal">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        $('#modalReserva').on('show.bs.modal', function (event) {
+            var boton = $(event.relatedTarget);
+            var nombreServicio = boton.data('servicio');
+            document.getElementById('reserva-servicio-input').value = nombreServicio;
+        });
+
+        document.getElementById('formReserva').addEventListener('submit', function (event) {
+            event.preventDefault();
+            var servicio = document.getElementById('reserva-servicio-input').value;
+            var fecha = document.getElementById('reserva-fecha').value;
+            var fechaFormateada = new Date(fecha + 'T00:00:00').toLocaleDateString('es-PE', {
+                weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+            });
+            document.getElementById('confirmacion-servicio').textContent = servicio;
+            document.getElementById('confirmacion-fecha').textContent = fechaFormateada;
+            $('#modalReserva').modal('hide');
+            $('#modalConfirmacion').modal('show');
+            this.reset();
+        });
+        document.addEventListener("DOMContentLoaded", function() {
+            let estaLogueado = localStorage.getItem("sesionIniciada");
+            let nombreGuardado = localStorage.getItem("usuarioNombre");
+            if (estaLogueado === "true" && nombreGuardado) {
+                if (document.getElementById("opcionRegistro")) document.getElementById("opcionRegistro").classList.add("d-none");
+                if (document.getElementById("opcionSesion")) document.getElementById("opcionSesion").classList.add("d-none");
+                if (document.getElementById("nombreUsuarioHeader")) document.getElementById("nombreUsuarioHeader").textContent = nombreGuardado;
+                if (document.getElementById("opcionUsuario")) document.getElementById("opcionUsuario").classList.remove("d-none");
+                if (document.getElementById("opcionCerrarSesion")) document.getElementById("opcionCerrarSesion").classList.remove("d-none");
+            }
+        });
+        function cerrarSesion() {
+            localStorage.removeItem("sesionIniciada");
+            window.location.reload(); 
+        }
+    </script>
+</body>
+</html>
